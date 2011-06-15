@@ -1,0 +1,42 @@
+<div id='person_app'>
+<h1>Listing people</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr>
+    <td><%= person.name %></td>
+    <td><%= person.description %></td>
+    <td><%= link_to 'Show', person %></td>
+    <td><%= link_to 'Edit', edit_person_path(person) %></td>
+    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= render :partial => 'form' %>
+
+<h1>Listing People through Backbone</h1>
+
+<table id="person_table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+</table>
+
+</div>
+
+<script id="person_template" type="text/html">
+<td>{{name}}</td>
+<td>{{Description}}</td>
+</script>
+
